@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  spyserver:
+    build: .
+    ports:
+     - "5555:5555"
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
