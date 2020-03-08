@@ -1,26 +1,6 @@
+arch: arm64
 language: c
-sudo: true
-
+compiler: gcc
 services:
   - docker
-
-cache:
-  directories:
-    - $HOME/qemu
-
-env:
-  - TRAVIS_CARCH=arm QEMU_ARCHES=arm
-  - TRAVIS_CARCH=386 QEMU_ARCHES=i386
-
-before_install:
-  - export CARCH=$TRAVIS_CARCH
-  - docker build -t manuasir/docker-spyserver .
-
-before_script:
-  - bash -e ci/travis-qemu.sh
-  - export PATH=$PATH:$HOME/qemu/bin
-
-script:
-  # One of those lines is necessary otherwise travis runs 'rake' by default.
-  - true
-  - echo "Success"
+script: docker build -t manuasir/docker-spyserver -f Dockerfile .
