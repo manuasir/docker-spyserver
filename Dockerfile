@@ -1,7 +1,7 @@
 FROM arm32v7/ubuntu
 
 # Install dependencies
-RUN apt-get update && apt-get install wget git cmake pkg-config libusb-1.0-0-dev gcc -y
+RUN apt-get -qq update && apt-get -qq install wget git cmake pkg-config libusb-1.0-0-dev gcc -y
 
 # Get driver repository
 RUN git clone git://git.osmocom.org/rtl-sdr.git
