@@ -1,6 +1,6 @@
 ### Dockerized RTL Spyserver for Raspberry Pi
 
-This Dockerfile allows you to easily deploy a RTL Spyserver using Docker in your Raspberry Pi
+Install and configure a containerized RTL Spyserver using Docker in your Raspberry Pi.
 
 #### Instructions
 
@@ -9,12 +9,12 @@ This Dockerfile allows you to easily deploy a RTL Spyserver using Docker in your
 cp ./files/blacklist-rtl.conf /lib/modprobe.d/
 ```
 
-2. Additionally, we need to set the correct permissions to the modules for allowing TCP messages. Place the `rtl_sdr.rules` file into your host `/etc/udev/rules.d/` folder:
+2. Additionally, we need to set the correct permissions to the modules in order to allow TCP messages. Place the `rtl_sdr.rules` file into your host `/etc/udev/rules.d/` folder:
 ```
 cp ./files/rtl_sdr.rules /etc/udev/rules.d/
 ```
 
-3. Reboot your Raspberry Pi, this should only have to be done once.
+3. Reboot your Raspberry Pi, this action should only be done once.
 
 4. Run the container using the `docker-compose` file included here:
 ```
@@ -34,9 +34,9 @@ services:
 docker-compose up -d --build spyserver
 ```
 
-5. The server is listening on port `5555`, connect to it using your RTL-SDR client (i.e. SDRSharp) and the IP of the Raspberry device.
+5. The container will listen requests on `5555` port, connect to it using your RTL-SDR client (i.e. SDRSharp) and point to the IP of the Raspberry device.
 ```
 sdr://<raspberry-ip>:55000
 ```
 
-6. Enjoy and open an issue or collaborate with a PR if anything is not working as expected.
+6. Enjoy it and open an issue or collaborate with a PR if anything is not working as expected.
