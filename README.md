@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/manuasir/docker-spyserver.svg?branch=master)](https://travis-ci.org/manuasir/docker-spyserver)
+
 ### Dockerized RTL Spyserver for Raspberry Pi
 
 Install and configure a containerized RTL Spyserver using Docker in your Raspberry Pi.
